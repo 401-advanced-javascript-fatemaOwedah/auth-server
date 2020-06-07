@@ -1,0 +1,29 @@
+{
+  "name": "auth-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/401-advanced-javascript-fatemaOwedah/auth-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/401-advanced-javascript-fatemaOwedah/auth-server/issues"
+  },
+  "homepage": "https://github.com/401-advanced-javascript-fatemaOwedah/auth-server#readme",
+  "dependencies": {
+    "base-64": "^0.1.0",
+    "bcrypt": "^4.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jest": "^26.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0"
+  }
+}
