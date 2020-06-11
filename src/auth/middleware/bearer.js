@@ -13,6 +13,7 @@ module.exports = (req, res, next) => {
 
   users.verifyToken(bearerToken)
     .then(decodedUserObject => {
+      console.log('decode======>',decodedUserObject);
       req.user = decodedUserObject;
       next();
     }).catch(err=> next('Protected: Invalid User Token'));

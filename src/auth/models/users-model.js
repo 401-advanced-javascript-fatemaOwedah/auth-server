@@ -8,6 +8,7 @@ const SECRET = process.env.SECRET;
 const users = new mongoose.Schema({
   username: {type: String, required: true},
   password: {type: String, required: true},
+  role: {type: String, required: true},
 });
 let complexity = 10;
 
@@ -28,7 +29,12 @@ users.methods.passCompare = function(password) {
 };
 
 users.methods.generateToken = function(user) {
-  let token = jwt.sign({ username: user.username}, SECRET, {
+  let roles = {admin : ['read','create','update','delete'],
+    writer: ['read','create'],
+    regular: ['read'],
+    editor:['read','create','update'],
+  };
+  let token = jwt.sign({ username: user.username, role: roles[user.role]}, SECRET, {
     expiresIn: '15m'});
   return token;
 };
@@ -39,8 +45,22 @@ users.statics.list =  async function(){
 users.statics.verifyToken = function (token) {
   let parsedToken = jwt.verify(token, SECRET);
   let query ={username: parsedToken.username};
-  return this.findOne(query);
+  return this.findOne(query)
+    .then(()=>{
+      return parsedToken;
+    });
 };
+users.statics.can = function (permision){
+  console.log(permision);
+  if(permision){
+    console.log(permision);
+    return Promise.resolve(true);
+  }
+  else{
+    return Promise.resolve(false);
+  }
+};
+
 
 module.exports = mongoose.model('users',users);
 
