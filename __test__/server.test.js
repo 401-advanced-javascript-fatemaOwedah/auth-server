@@ -48,5 +48,12 @@ describe('web server',()=>{
         expect(data.status).toBe(500);
       });
   });
+  it('test route  /ouath ', async() => {
+    mockRequest
+      .get('/ouath')
+      .then(data => {
+        expect(data.status).toBe(200);
+      });
+  });
 
 });
