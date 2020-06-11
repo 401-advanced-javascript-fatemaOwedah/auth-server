@@ -28,13 +28,20 @@ users.methods.passCompare = function(password) {
 };
 
 users.methods.generateToken = function(user) {
-  let token = jwt.sign({ username: user.username}, SECRET);
+  let token = jwt.sign({ username: user.username}, SECRET, {
+    expiresIn: '15m'});
   return token;
 };
 users.statics.list =  async function(){
   let results = await this.find({});
   return results;
 };
+users.statics.verifyToken = function (token) {
+  let parsedToken = jwt.verify(token, SECRET);
+  let query ={username: parsedToken.username};
+  return this.findOne(query);
+};
+
 module.exports = mongoose.model('users',users);
 
 

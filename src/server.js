@@ -3,6 +3,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const authRouter = require('./auth/router');
+const extraRouter = require('./auth/extra-routes');
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(express.static('./public'));
 
 
 app.use(authRouter);
+app.use(extraRouter);
 
 
 

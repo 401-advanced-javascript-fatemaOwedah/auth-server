@@ -9,8 +9,6 @@ module.exports = (req, res, next) => {
     return;
   }
 
-  
-  console.log('req.headers.authorization >>>> ',req.headers.authorization);
   let bearerToken = req.headers.authorization.split(' ').pop();
 
   users.verifyToken(bearerToken)
