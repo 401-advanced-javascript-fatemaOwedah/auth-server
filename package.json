@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/401-advanced-javascript-fatemaOwedah/auth-server#readme",
   "dependencies": {
+    "@code-fellows/supergoose": "^1.0.2",
     "base-64": "^0.1.0",
     "bcrypt": "^4.0.1",
     "dotenv": "^8.2.0",
@@ -27,6 +28,7 @@
     "jest": "^26.0.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.18",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "superagent": "^5.2.2"
   }
 }

@@ -23,6 +23,8 @@
 http://localhost:3000/signup ===> app.post
 http://localhost:3000/signin ===> app.get
 http://localhost:3000/users ===> app.get
+http://localhost:3000/oauth ===> app.get
+http://localhost:3000/secret ===> app.get
 
 to run test ===> npm test / npm run test
 
@@ -37,4 +39,4 @@ to run test ===> npm test / npm run test
 npm run test 
 
 #### UML
-![UML](/assets/lab11.jpeg)
+![UML](/assets/lab13.jpeg)
