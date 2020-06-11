@@ -4,6 +4,7 @@ const express = require('express');
 const authRouter = express.Router();
 const Users = require('./models/users-model');
 const basicAuth = require('./middleware/basic');
+const oauth = require('./middleware/oauth');
 
 authRouter.post('/signup', (req, res,next) => {
   let user = new Users(req.body);
@@ -16,6 +17,11 @@ authRouter.post('/signup', (req, res,next) => {
 });
   
 authRouter.post('/signin', basicAuth, (req, res) => {
+  res.cookie('name', req.token ,{ expires: new Date(Date.now() + 900000), httpOnly: true });
+  res.status(200).send(req.token);
+});
+
+authRouter.get('/oauth', oauth, (req,res)=>{
   res.cookie('name', req.token ,{ expires: new Date(Date.now() + 900000), httpOnly: true });
   res.status(200).send(req.token);
 });
