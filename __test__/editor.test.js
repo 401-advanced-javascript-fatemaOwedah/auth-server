@@ -52,39 +52,4 @@ describe('web server',()=>{
       }); 
   });
   
-  it('should get /read', () => {
-    return mockRequest
-      .get(`/read`)
-      .set('Authorization', `Bearer ${token}`)
-      .then(results => {
-        expect(results.status).toBe(500);
-      }); 
-  });
-  it('should postt /add', () => {
-    return mockRequest
-      .post(`/add`)
-      .set('Authorization', `Bearer ${token}`)
-      .then(results => {
-        expect(results.status).toBe(500);
-      }); 
-  });
-  
-  it('should put /change', () => {
-    return mockRequest
-      .put(`/change`)
-      .set('Authorization', `Bearer ${token}`)
-      .then(results => {
-        expect(results.status).toBe(500);
-      }); 
-  });
-  
-  it('should postt /remove', () => {
-    return mockRequest
-      .delete(`/remove`)
-      .set('Authorization', `Bearer ${token}`)
-      .then(results => {
-        expect(results.status).toBe(500);
-      }); 
-  });
-  
 });
