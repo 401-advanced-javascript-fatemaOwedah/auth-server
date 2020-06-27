@@ -3,6 +3,7 @@
 const {server} = require('../src/server');
 const supergoose = require('@code-fellows/supergoose');
 
+jest.spyOn(global.console, 'log');
 const mockRequest = supergoose(server);
 
 describe('web server',()=>{
@@ -43,7 +44,7 @@ describe('web server',()=>{
   it('test route  /signin ', async() => {
     mockRequest
       .post('/signin')
-      .send(test)
+      .send(user)
       .then(data => {
         expect(data.status).toBe(500);
       });
@@ -73,7 +74,7 @@ describe('web server',()=>{
   it('test route  /signin ', async() => {
     mockRequest
       .post('/signin')
-      .send(test)
+      .send(user)
       .then(data => {
         expect(data.status).toBe(500);
       });
@@ -92,5 +93,4 @@ describe('web server',()=>{
         expect(data.status).toBe(200);
       });
   });
-
 });
