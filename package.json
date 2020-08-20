@@ -19,7 +19,7 @@
   "homepage": "https://github.com/401-advanced-javascript-fatemaOwedah/auth-server#readme",
   "dependencies": {
     "base-64": "^0.1.0",
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jest": "^26.0.1",
